@@ -9,8 +9,8 @@ all: $(DIST)
 $(DIST_DIR):
 	mkdir -p $@
 
-$(DIST): $(wildcard gmail_font/*) | $(DIST_DIR)
-	cd gmail_font && zip -r ../$@ . -x \*.DS_Store \*.\*.swp
+$(DIST): $(wildcard myfont4gmail/*) | $(DIST_DIR)
+	cd myfont4gmail && zip -r ../$@ . -x \*.DS_Store \*.\*.swp
 
 clean:
 	rm -rf $(DIST_DIR)/*
