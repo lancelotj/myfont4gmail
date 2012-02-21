@@ -1,0 +1,121 @@
+.ui-widget {
+  font-size: .9em; }
+
+button.action, select {
+  padding: 4px 4px;
+}
+
+button .ui-state-default {
+  padding: 1px 3px;
+  margin: 0;
+}
+
+body {
+  font-family: Verdana, Tahoma, Arial, sans; }
+  body p {
+    color: #888;
+    font-size: .8em; }
+
+div.panel {
+  width: 660px;
+  padding: 5px; }
+
+.controls {
+  text-align: right;
+}
+
+h1 {
+  font-family: Arial;
+  font-size: 1.5em;
+  font-weight: normal;
+  color: #8a8a8a;
+  border-bottom: 1px #eee solid;
+  padding-bottom: 8px; }
+/*
+table.options {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-top: 1px #ddd solid; }
+  table.options td {
+    padding: 5px 10px; }
+  table.options tr {
+    border-bottom: 1px #ddd solid; }
+  table.options th {
+    font-weight: normal;
+    text-align: right;
+    font-size: .9em;
+    background: #eee;
+    padding: 5px 10px; }
+*/
+table.options {
+}
+table.options td {
+  padding: 5px 10px;
+}
+
+table.options th {
+  font-weight: normal;
+  text-align: left;
+  font-size: .9em;
+  padding: 5px 10px;
+}
+
+.help {
+  font-size: .7em;
+  margin: 0;
+  color: #666;
+}
+
+#logo {
+  vertical-align: middle;
+}
+
+#font_list {
+  list-style-type: none;
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid #eee;
+  margin: 0;
+  padding:0; 
+}
+
+#font_list li {
+  margin: 0;
+  padding: 5px 3px;
+}
+
+#side_bar {
+  width: 270px;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  background-color: #f8f7f7;
+  height: 100%;
+  padding: 10px;
+  background: -webkit-linear-gradient(rgba(234, 255, 243, 0.2), #EAEEF3), -webkit-linear-gradient(left, #EAEEF3, #EAEEF3 97%, #D3D7DB);
+}
+
+#main {
+ left: 291px;
+ position: absolute;
+ padding: 20px;
+}
+
+#btn_ddmenu {
+  display: block;
+  width: 150px;
+  outline: none;
+  border: 1px solid #fff;
+  text-decoration: none;
+}
+
+#btn_ddmenu:hover {
+  border: 1px solid #ccc;
+}
+
+#btn_ddmenu:active {
+  background-color: #eee;
+}
+

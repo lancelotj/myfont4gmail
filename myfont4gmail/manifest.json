@@ -1,0 +1,22 @@
+{
+    "name": "My Font for Gmail™",
+    "version": "0.1.4",
+    "description": "Change Gmail's default font to improve the display. It can change the font of the email viewer and editor to any font in your system.",
+    "options_page": "options.html",
+    "background_page": "background.html",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "permissions": [
+        "tabs",
+        "http://mail.google.com/*",
+        "https://mail.google.com/*"
+    ],
+    "content_scripts": [{
+        "matches": ["http://mail.google.com/*", "https://mail.google.com/*"],
+        "js": ["js/change_font.js"],
+        "run_at": "document_idle"
+    }]
+}

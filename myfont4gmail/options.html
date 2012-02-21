@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+<title>My Font for Gmail™ Options</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+<div id="side_bar">
+  <h1><img id="logo" src="icon48.png" alt="logo"/>My Font for Gmail™</h1>
+  <p>Version: 0.1.4</p>
+</div>
+<div id="main">
+  <h1>Options</h1>
+  <table class="options">
+  <tr>
+  <th><label for="text_font_family">Font Name:</th>
+  <td><div id="btn_ddmenu" tabindex="10" title="Show all predefined fonts" class="normal"><input id="text_font_family" value=""/> <img src="images/down_arrow.png" alt="Down"/></div>
+    <p class="help">Choose a pre-defined font from the drop-down menu or type in a font name in your system.</p></td>
+  </tr>
+  <tr><th><label for="text_font_size">Font Size:</label></th>
+  <td>
+  <select id="text_font_size">
+  <option value="">-----</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+  <option>10</option>
+  <option>11</option>
+  <option>12</option>
+  <option>13</option>
+  <option>14</option>
+  <option>15</option>
+  <option>16</option>
+  <option>17</option>
+  <option>18</option>
+  <option>19</option>
+  <option>20</option>
+  <option>22</option>
+  <option>24</option>
+  </select>pt
+  </td>
+  </tr>
+  </table>
+  <p class="controls">
+  <button id="id_save" disabled="disabled" title="Save your changes. Please refresh your Gmail page to apply the settings." class="action">Saved</button>
+  <button id="id_cancel" title="Close this window" class="action">Close</button>
+  </p>
+</div>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+function create_ddmenu(btn) {
+  var predefinedFonts = [
+    "Arial", "Comic Sans MS", "Consolas", "Courier New",
+    "DejaVu Sans Mono", "Droid Sans", "monospace", "Monaco", "sans",
+    "serif", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"];
+  // create font list
+  var ul = $("<ul id=\"font_list\">").hide();
+  ulpos = btn.offset();
+  console.log(ulpos);
+  ul.offset({top: ulpos.top + btn.height, left: ulpos.left});
+  btn.click(function(){
+      ul.toggle();
+    }).blur(function(){
+    });
+  $.each(predefinedFonts, function(i, f){
+    var li = $("<li/>");
+    li.css("font-family", f).html(f).click(function(){
+      alert("test");
+      ul.hide();
+    });
+    ul.append(li);
+  });
+
+  //ul.style.left = btn.offsetLeft + btn.offsetWidth - ul.offsetWidth + "px";
+  // ul.style.top = btn.offsetTop + btn.offsetHeight + "px";
+  ul.insertAfter(btn);
+}
+
+function enableSave() {
+  $("#id_save").attr("disabled", false).html("Save &amp; Apply");
+}
+
+$(function(){
+  var fontFamilyInput = $("#text_font_family");
+  var fontSizeInput = $("#text_font_size");
+
+  localStorage["fontFamily"] && fontFamilyInput.val(localStorage["fontFamily"]);
+  localStorage["fontSize"] && fontSizeInput.val(localStorage["fontSize"]);
+  fontFamilyInput.keydown(enableSave)
+    .click(function(){
+      this.select();
+      return false;  
+    });
+  fontSizeInput.change(enableSave);
+
+  $("#id_cancel").click(function(){
+    window.close();
+  });
+  create_ddmenu($("#btn_ddmenu"));
+});
+</script>
+</body>
+</html>
+
