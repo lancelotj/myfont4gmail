@@ -14,7 +14,7 @@
   <table class="options">
   <tr>
   <th><label for="text_font_family">Font Name:</th>
-  <td><div id="btn_ddmenu" tabindex="10" title="Show all predefined fonts" class="normal"><input id="text_font_family" value=""/> <img src="images/down_arrow.png" alt="Down"/></div>
+  <td><div id="ddmenu" class="normal"><input id="text_font_family" value="" type="text"/> <img src="images/down_arrow.png" alt="Down"/></div>
     <p class="help">Choose a pre-defined font from the drop-down menu or type in a font name in your system.</p></td>
   </tr>
   <tr><th><label for="text_font_size">Font Size:</label></th>
@@ -49,32 +49,25 @@
 </div>
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
-function create_ddmenu(btn) {
+function create_ddmenu(ddmenu) {
   var predefinedFonts = [
     "Arial", "Comic Sans MS", "Consolas", "Courier New",
-    "DejaVu Sans Mono", "Droid Sans", "monospace", "Monaco", "sans",
-    "serif", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"];
+    "Georgia", "monospace", "Monaco", "sans",
+    "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"];
   // create font list
-  var ul = $("<ul id=\"font_list\">").hide();
-  ulpos = btn.offset();
-  console.log(ulpos);
-  ul.offset({top: ulpos.top + btn.height, left: ulpos.left});
-  btn.click(function(){
-      ul.toggle();
-    }).blur(function(){
-    });
-  $.each(predefinedFonts, function(i, f){
+  var ul = $("<ul id=\"font_list\">");
+  ddmenu.click(function(){
+    ul.toggle();
+  });
+  $.each(predefinedFonts, function(i, f) {
     var li = $("<li/>");
     li.css("font-family", f).html(f).click(function(){
-      alert("test");
+      alert(f);
       ul.hide();
     });
     ul.append(li);
   });
-
-  //ul.style.left = btn.offsetLeft + btn.offsetWidth - ul.offsetWidth + "px";
-  // ul.style.top = btn.offsetTop + btn.offsetHeight + "px";
-  ul.insertAfter(btn);
+  ddmenu.append(ul);
 }
 
 function enableSave() {
@@ -84,7 +77,6 @@ function enableSave() {
 $(function(){
   var fontFamilyInput = $("#text_font_family");
   var fontSizeInput = $("#text_font_size");
-
   localStorage["fontFamily"] && fontFamilyInput.val(localStorage["fontFamily"]);
   localStorage["fontSize"] && fontSizeInput.val(localStorage["fontSize"]);
   fontFamilyInput.keydown(enableSave)
@@ -93,8 +85,7 @@ $(function(){
       return false;  
     });
   fontSizeInput.change(enableSave);
-
-  create_ddmenu($("#btn_ddmenu"));
+  create_ddmenu($("#ddmenu"));
   $("#id_cancel").click(function(){
     window.close();
   });
