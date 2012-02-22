@@ -94,10 +94,14 @@ $(function(){
     });
   fontSizeInput.change(enableSave);
 
+  create_ddmenu($("#btn_ddmenu"));
   $("#id_cancel").click(function(){
     window.close();
   });
-  create_ddmenu($("#btn_ddmenu"));
+  $("#id_save").click(function(){
+    localStorage["fontFamily"] = fontFamilyInput.val();
+    localStorage["fontSize"] = fontSizeInput.val();
+  });
 });
 </script>
 </body>
