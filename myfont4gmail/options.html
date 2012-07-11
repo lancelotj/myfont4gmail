@@ -1,100 +1,69 @@
 <!DOCTYPE html>
 <head>
-<title>My Font for Gmail™ Options</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+  <title>My Font for Gmail™ Options</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.21.custom.css"/>
+  <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
 <body>
-<div id="side_bar">
-  <h1><img id="logo" src="icon48.png" alt="logo"/>My Font for Gmail™</h1>
-  <p>Version: 0.1.4</p>
-</div>
-<div id="main">
-  <h1>Options</h1>
-  <table class="options">
-  <tr>
-  <th><label for="text_font_family">Font Name:</th>
-  <td><div id="ddmenu" class="normal"><input id="text_font_family" value="" type="text"/> <img src="images/down_arrow.png" alt="Down"/></div>
-    <p class="help">Choose a pre-defined font from the drop-down menu or type in a font name in your system.</p></td>
-  </tr>
-  <tr><th><label for="text_font_size">Font Size:</label></th>
-  <td>
-  <select id="text_font_size">
-  <option value="">-----</option>
-  <option>6</option>
-  <option>7</option>
-  <option>8</option>
-  <option>9</option>
-  <option>10</option>
-  <option>11</option>
-  <option>12</option>
-  <option>13</option>
-  <option>14</option>
-  <option>15</option>
-  <option>16</option>
-  <option>17</option>
-  <option>18</option>
-  <option>19</option>
-  <option>20</option>
-  <option>22</option>
-  <option>24</option>
-  </select>pt
-  </td>
-  </tr>
-  </table>
-  <p class="controls">
-  <button id="id_save" disabled="disabled" title="Save your changes. Please refresh your Gmail page to apply the settings." class="action">Saved</button>
-  <button id="id_cancel" title="Close this window" class="action">Close</button>
-  </p>
-</div>
-<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript">
-function create_ddmenu(ddmenu) {
-  var predefinedFonts = [
-    "Arial", "Comic Sans MS", "Consolas", "Courier New",
-    "Georgia", "monospace", "Monaco", "sans",
-    "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"];
-  // create font list
-  var ul = $("<ul id=\"font_list\">");
-  ddmenu.click(function(){
-    ul.toggle();
-  });
-  $.each(predefinedFonts, function(i, f) {
-    var li = $("<li/>");
-    li.css("font-family", f).html(f).click(function(){
-      alert(f);
-      ul.hide();
-    });
-    ul.append(li);
-  });
-  ddmenu.append(ul);
-}
-
-function enableSave() {
-  $("#id_save").attr("disabled", false).html("Save &amp; Apply");
-}
-
-$(function(){
-  var fontFamilyInput = $("#text_font_family");
-  var fontSizeInput = $("#text_font_size");
-  localStorage["fontFamily"] && fontFamilyInput.val(localStorage["fontFamily"]);
-  localStorage["fontSize"] && fontSizeInput.val(localStorage["fontSize"]);
-  fontFamilyInput.keydown(enableSave)
-    .click(function(){
-      this.select();
-      return false;  
-    });
-  fontSizeInput.change(enableSave);
-  create_ddmenu($("#ddmenu"));
-  $("#id_cancel").click(function(){
-    window.close();
-  });
-  $("#id_save").click(function(){
-    localStorage["fontFamily"] = fontFamilyInput.val();
-    localStorage["fontSize"] = fontSizeInput.val();
-  });
-});
-</script>
+  <div id="main">
+    <h1><img id="logo" src="icon48.png" alt="logo"/>My Font for Gmail™</h1>
+    <p>Version: 0.1.4</p>
+    <h1>Options</h1>
+    <table class="options">
+      <tr>
+        <th><label for="font_family">Font Name:</label></th>
+        <td>
+          <select id="combo_font_family">
+            <option value="">-----</option>
+            <option value="Arial">Arial</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Consolas">Consolas</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="monospace">monospace</option>
+            <option value="Monaco">Monaco</option>
+            <option value="sans">sans</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Trebuchet MS">Trebuchet MS</option>
+            <option value="Verdana">Verdana</option>
+          </select>
+          <p class="help">Choose a pre-defined font from the drop-down menu or type in a font name in your system.</p></td>
+      </tr>
+      <tr><th><label for="combo_font_size">Font Size:</label></th>
+        <td>
+          <select id="text_font_size">
+            <option value="">-----</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>24</option>
+            <option>28</option>
+            <option>32</option>
+          </select>pt
+        </td>
+      </tr>
+    </table>
+    <p class="controls">
+    <button id="id_save" disabled="disabled" title="Save your changes. Please refresh your Gmail page to apply the settings." class="action">Saved</button>
+    <button id="id_cancel" title="Close this window" class="action">Close</button>
+    </p>
+  </div>
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
 

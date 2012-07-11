@@ -83,9 +83,9 @@ table.options th {
 }
 
 #main {
- left: 291px;
- position: absolute;
- padding: 20px;
+  padding: 20px;
+  margin: 10px auto;
+  width: 600px;
 }
 
 #ddmenu {
@@ -107,7 +107,6 @@ table.options th {
 
 #font_list {
   list-style-type: none;
-  position: absolute;
   z-index: 100;
   background-color: #eee;
   border: 1px solid #eee;
@@ -121,4 +120,21 @@ table.options th {
   margin: 0;
   padding: 2px 10px;
 }
-
+.ui-combobox {
+  position: relative;
+  display: inline-block;
+}
+.ui-combobox-toggle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  padding: 0;
+  /* adjust styles for IE 6/7 */
+  *height: 1.7em;
+  *top: 0.1em;
+}
+.ui-combobox-input {
+  margin: 0;
+  padding: 0.2em;
+}
