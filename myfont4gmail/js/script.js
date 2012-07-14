@@ -130,7 +130,7 @@ function enableSave() {
 })(jQuery);
 
 $(function() {
-  $("#combo_font_family").combobox();
+  $("#font_family").combobox();
 });
 
 $(function(){
@@ -147,15 +147,18 @@ $(function(){
     this.select();
     return false;  
   });
-  fontSizeInput.change(enableSave);
-  create_ddmenu($("#ddmenu"));
-  $("#id_cancel").click(function(){
-    window.close();
-  });
-  $("#id_save").click(function(){
-    localStorage.fontFamily = fontFamilyInput.val();
-    localStorage.fontSize = fontSizeInput.val();
-  });
+fontSizeInput.change(enableSave);
+create_ddmenu($("#ddmenu"));
+$("#id_cancel").click(function(){
+  window.close();
+});
+
+$("button").button();
+$("#id_save").click(function(){
+  localStorage.fontFamily = fontFamilyInput.val();
+  localStorage.fontSize = fontSizeInput.val();
+});
+
 });
 
 
