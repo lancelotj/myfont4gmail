@@ -2,8 +2,10 @@
 <head>
   <title>My Font for Gmail™ Options</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-  <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.21.custom.css"/>
+  <!-- CSS BLOCK -->
+  <link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css"/>
   <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+  <!-- END CSS BLOCK -->
 </head>
 <body>
   <div id="main">
@@ -14,26 +16,12 @@
       <tr>
         <th><label for="font_family">Font Name:</label></th>
         <td>
-          <select id="font_family">
-            <option value="">-----</option>
-            <option value="Arial">Arial</option>
-            <option value="Comic Sans MS">Comic Sans MS</option>
-            <option value="Consolas">Consolas</option>
-            <option value="Courier New">Courier New</option>
-            <option value="Georgia">Georgia</option>
-            <option value="monospace">monospace</option>
-            <option value="Monaco">Monaco</option>
-            <option value="sans">sans</option>
-            <option value="Tahoma">Tahoma</option>
-            <option value="Times New Roman">Times New Roman</option>
-            <option value="Trebuchet MS">Trebuchet MS</option>
-            <option value="Verdana">Verdana</option>
-          </select>
-          <p class="help">Choose a pre-defined font from the drop-down menu or type in a font name in your system.</p></td>
+          <input id="font_family" type="text"/>
+          <p class="help">You can specify any font name in your system here.</p></td>
       </tr>
-      <tr><th><label for="combo_font_size">Font Size:</label></th>
+      <tr><th><label for="font_size">Font Size:</label></th>
         <td>
-          <select id="font_size" class="ui-widget ui-state-default ui-corner-all" style="-webkit-appearance:none">
+          <select id="font_size">
             <option value="">-----</option>
             <option>6</option>
             <option>7</option>
@@ -62,8 +50,10 @@
     </p>
   </div>
   <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
+  <!-- JS_BLOCK -->
+  <script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+  <script type="text/javascript" src="js/options.js"></script>
+  <!-- END_JS_BLOCK -->
 </body>
 </html>
 
