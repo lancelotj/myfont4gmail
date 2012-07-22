@@ -2,12 +2,12 @@ $(function() {
     var save = $("#id_save");
     var predefined_fonts = [
         "Arial", "Comic Sans MS", "Consolas", "Courier New",
-        "Georgia", "Monaco", "monospace", "sans",
+        "DejaVu Sans Mono", "Georgia", "Monaco", 
         "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"
     ];
 
     function enableSave() {
-        save.attr("disabled", false).text("Save");
+        save.attr("disabled", false).val("Save");
     }
 
     var font_family = $("#font_family").autocomplete(
@@ -18,10 +18,8 @@ $(function() {
                 .html(highlighted);
             }
         }
-    ).keypress(enableSave);
-
-    var font_size = $("#font_size"
-    ).change(enableSave);
+    ).keydown(enableSave);
+    var font_size = $("#font_size").change(enableSave);
 
     if (localStorage.fontFamily) {
         font_family.val(localStorage.fontFamily);
@@ -34,10 +32,11 @@ $(function() {
         window.close();
     });
 
-    $("#id_save").click(function(){
+    $("#font_form").submit(function(){
         localStorage.fontFamily = font_family.val();
         localStorage.fontSize = font_size.val();
         save.attr("disabled", true).text("Saved");
+        return false;
     });
 });
 

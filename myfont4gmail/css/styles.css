@@ -19,6 +19,9 @@ h1 {
     padding-bottom: 8px;
 }
 
+table.options {
+    width: 30em;
+}
 table.options td {
     padding: 5px 10px;
 }
@@ -28,6 +31,7 @@ table.options th {
     text-align: left;
     font-size: .9em;
     padding: 5px 10px;
+    width: 8em;
 }
 
 .help {

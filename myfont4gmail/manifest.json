@@ -2,7 +2,7 @@
     "name": "My Font for Gmail™",
     "version": "0.1.4",
     "manifest_version": 2,
-    "description": "Change Gmail's default font to improve the display. It can change the font of the email viewer and editor to any font in your system.",
+    "description": "Change Gmail's default display font of the mail viewer and the writer.",
     "options_page": "options.html",
     "background": {
         "scripts": ["js/background.js"]

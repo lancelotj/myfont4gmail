@@ -2,22 +2,20 @@
 <head>
   <title>My Font for Gmail™ Options</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-  <!-- CSS BLOCK -->
-  <link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css"/>
   <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-  <!-- END CSS BLOCK -->
 </head>
 <body>
   <div id="main">
     <h1><img id="logo" src="icon48.png" alt="logo"/>My Font for Gmail™</h1>
     <p>Version: 0.1.4</p>
     <h1>Options</h1>
+    <form id="font_form" action="">
     <table class="options">
       <tr>
         <th><label for="font_family">Font Name:</label></th>
         <td>
-          <input id="font_family" type="text"/>
-          <p class="help">You can specify any font name in your system here.</p></td>
+          <input id="font_family" type="text" pattern="[\w ]+"/>
+          <p class="help">You can specify ANY font name here, or pick one from the suggestions when you type.</p></td>
       </tr>
       <tr><th><label for="font_size">Font Size:</label></th>
         <td>
@@ -45,9 +43,12 @@
       </tr>
     </table>
     <p class="controls">
-    <button id="id_save" disabled="disabled" title="Save your changes. Please refresh your Gmail page to apply the settings.">Saved</button>
+    <span class="help">Refresh your Gmail page after saving</span>
+    <input id="id_save" type="submit" disabled="disabled" title="Save your changes. Please refresh your Gmail page to apply the settings." value="Saved"/>
     <button id="id_cancel" title="Close this window">Close</button>
     </p>
+    
+    </form>
   </div>
   <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
   <!-- JS_BLOCK -->

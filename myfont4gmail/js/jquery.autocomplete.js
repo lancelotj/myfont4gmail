@@ -13,38 +13,6 @@ See changelog for details.
 Modified  by Lance Jian
 */
 
-/* 
-Usage:
-
-options : 
-autoFill: false,
-cacheLength: 100,
-clickFire: false,
-delay: 400,
-extraParams: {},
-formatItem: function(row) { return row[0]; },
-formatMatch: null,
-highlight: function(value, term) {}, return a html with search term highlighted.
-inputClass: "ac_input",
-inputFocus: true,
-loadingClass: "ac_loading",
-matchCase: false,
-matchContains: false,
-matchSubset: true,
-max: 1000,
-minChars: 1,
-multiple: false,
-multipleSeparator: " ",
-mustMatch: false,
-resultsClass: "ac_results",
-selectFirst: true,
-width: 0,
-scroll: true,
-scrollHeight: 180,
-scrollJumpPosition: true
-
-*/
-
 ;(function($, undefined) {
     $.fn.extend({
         autocomplete: function(urlOrData, options) {
