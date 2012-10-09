@@ -1,6 +1,6 @@
 {
     "name": "My Font for Gmail™",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "manifest_version": 2,
     "description": "Change Gmail's default display font of the mail viewer and the writer.",
     "options_page": "options.html",
@@ -20,6 +20,6 @@
     "content_scripts": [{
         "matches": ["http://mail.google.com/*", "https://mail.google.com/*"],
         "js": ["js/change_font.js"],
-        "run_at": "document_idle"
+        "run_at": "document_end"
     }]
 }
